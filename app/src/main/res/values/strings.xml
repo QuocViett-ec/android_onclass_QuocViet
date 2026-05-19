@@ -19,4 +19,26 @@
     <string name="str_ms">MS</string>
     <string name="str_m">M</string>
     <string name="str_open_calculator_app">Open Calculator</string>
+    <string name="str_save_login_inf">"Save information "</string>
+    <string name="str_login_role">Login Role</string>
+    <string name="str_role_admin">Admin</string>
+    <string name="str_role_employee">Employee</string>
+    <string name="str_employee_id">Employee ID:</string>
+    <string name="str_employee_name">Employee Name:</string>
+    <string name="str_phonenumber">Phone Number:</string>
+    <string name="str_save">Save</string>
+    <string name="str_delete">Delete</string>
+    <string name="str_confirm_exit"><![CDATA[Do not Exit Please :<]]></string>
+    <string name="str_employee_required">Vui long nhap day du thong tin nhan vien</string>
+    <string name="str_employee_select_to_delete">Can chon nhan vien de xoa</string>
+    <string name="str_employee_not_found">Khong tim thay nhan vien</string>
+    <string name="str_confirm_delete_title">Confirm delete</string>
+    <string name="str_confirm_delete_message">Ban co muon xoa nhan vien nay?</string>
+    <string name="str_yes">Co</string>
+    <string name="str_no">Khong</string>
+    <string name="str_msg_select_employee">Please select an employee to delete</string>
+    <string name="str_confirm_delete_msg">Do you really want to delete this employee?</string>
+    <string name="str_delete_success">Deleted successfully</string>
+    <string name="str_department">Department</string>
+    <string name="str_list_employee">List Employee</string>
 </resources>

@@ -1,21 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#F8F0FF"
     tools:context=".CalculatorActivity">
 
-    <EditText
-        android:id="@+id/editFormular"
+    <!-- Display area: formula on top, result below -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="110dp"
+        android:orientation="vertical"
         android:background="@color/yellow_background"
-        android:ems="10"
-        android:inputType="text" />
+        android:padding="8dp"
+        android:gravity="bottom">
 
+        <!-- Formula / expression display (e.g. "12 + 5 =") -->
+        <TextView
+            android:id="@+id/textFormula"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#888888"
+            android:textAlignment="textEnd"
+            android:singleLine="true"
+            android:ellipsize="start"
+            android:text="" />
+
+        <!-- Main result / current number display -->
+        <EditText
+            android:id="@+id/editFormular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:focusable="false"
+            android:inputType="none"
+            android:textSize="36sp"
+            android:textColor="#222222"
+            android:textAlignment="textEnd"
+            android:singleLine="true"
+            android:ellipsize="start"
+            android:text="0" />
+    </LinearLayout>
+
+    <!-- Memory row -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,105 +55,140 @@
         <TextView
             android:id="@+id/textViewMC"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="@string/str_mc"
+            android:textSize="13sp"
+            android:clickable="true"
+            android:focusable="true"
             android:textAlignment="center" />
 
         <TextView
             android:id="@+id/textViewMR"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:background="@color/pink"
             android:text="@string/str_mr"
+            android:textSize="13sp"
+            android:clickable="true"
+            android:focusable="true"
             android:textAlignment="center" />
 
         <TextView
             android:id="@+id/textViewMPlus"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="@string/str_mplus"
+            android:textSize="13sp"
+            android:clickable="true"
+            android:focusable="true"
             android:textAlignment="center" />
 
         <TextView
             android:id="@+id/textViewMMinus"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:background="@color/pink"
             android:text="@string/str_mminus"
+            android:textSize="13sp"
+            android:clickable="true"
+            android:focusable="true"
             android:textAlignment="center" />
 
         <TextView
             android:id="@+id/textViewMS"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="@string/str_ms"
+            android:textSize="13sp"
+            android:clickable="true"
+            android:focusable="true"
             android:textAlignment="center" />
 
         <TextView
             android:id="@+id/textViewM"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:layout_weight="1"
+            android:gravity="center"
             android:background="@color/pink"
             android:text="@string/str_m"
+            android:textSize="13sp"
+            android:clickable="true"
+            android:focusable="true"
             android:textAlignment="center" />
     </LinearLayout>
 
+    <!-- Button grid -->
     <TableLayout
         android:stretchColumns="*"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- Row 1: %, CE, C, Del -->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <Button
+                android:onClick="processInputData"
                 android:id="@+id/buttonPercent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="%" />
 
             <Button
+                android:onClick="processInputData"
                 android:id="@+id/buttonCE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="CE" />
 
             <Button
+                android:onClick="processInputData"
                 android:id="@+id/buttonC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="C" />
 
             <Button
+                android:onClick="processInputData"
                 android:id="@+id/buttonDel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Del" />
         </TableRow>
+
+        <!-- Row 2: 1/x, x^2, sqrt(x), : -->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <Button
+                android:onClick="processInputData"
                 android:id="@+id/button_1dividex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1/x" />
 
             <Button
+                android:onClick="processInputData"
                 android:id="@+id/button_xx"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="x^2" />
 
             <Button
+                android:onClick="processInputData"
                 android:id="@+id/button_sqrtx"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -135,6 +201,8 @@
                 android:layout_height="wrap_content"
                 android:text=":" />
         </TableRow>
+
+        <!-- Row 3: 7, 8, 9, x -->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -167,6 +235,8 @@
                 android:layout_height="wrap_content"
                 android:text="x" />
         </TableRow>
+
+        <!-- Row 4: 4, 5, 6, - -->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -199,6 +269,8 @@
                 android:layout_height="wrap_content"
                 android:text="-" />
         </TableRow>
+
+        <!-- Row 5: 1, 2, 3, + -->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -231,11 +303,14 @@
                 android:layout_height="wrap_content"
                 android:text="+" />
         </TableRow>
+
+        <!-- Row 6: +/-, 0, ., = -->
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <Button
+                android:onClick="processInputData"
                 android:id="@+id/button_plus_minus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -249,18 +324,19 @@
                 android:text="0" />
 
             <Button
+                android:onClick="processInputData"
                 android:id="@+id/button_dot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="." />
 
             <Button
+                android:onClick="processInputData"
                 android:id="@+id/button_equal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="=" />
         </TableRow>
-
 
     </TableLayout>
 </LinearLayout>

@@ -55,6 +55,36 @@
         android:text="123"
         />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/str_login_role" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rad_admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_role_admin" />
+
+        <RadioButton
+            android:id="@+id/rad_employee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_role_employee" />
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/chk_SaveLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/str_save_login_inf" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

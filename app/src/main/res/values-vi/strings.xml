@@ -18,6 +18,18 @@
     <string name="str_mminus">M-</string>
     <string name="str_ms">MS</string>
     <string name="str_m">M</string>
-    <string name="str_open_calculator_app">Open Calculator</string>
+    <string name="str_open_calculator_app">mở máy tính</string>
+    <string name="str_save_login_inf">"lưu thông tin "</string>
+    <string name="str_login_role">phiên đăng nhập</string>
+    <string name="str_role_admin">quản trị viên</string>
+    <string name="str_role_employee">nhân viên</string>
+    <string name="str_employee_id">Employee ID:</string>
+    <string name="str_employee_name">Employee Name:</string>
+    <string name="str_phonenumber">Phone Number:</string>
+    <string name="str_save">Save</string>
+    <string name="str_delete">Delete</string>
+    <string name="str_confirm_exit"><![CDATA[Do not Exit Please :<]]></string>
+    <string name="str_department">Department</string>
+    <string name="str_list_employee">List Employee</string>
     Transform Selected Code…
 </resources>
