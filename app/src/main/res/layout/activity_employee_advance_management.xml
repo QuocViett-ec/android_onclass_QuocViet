@@ -16,7 +16,7 @@
         android:text="@string/str_department" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spDepartment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
