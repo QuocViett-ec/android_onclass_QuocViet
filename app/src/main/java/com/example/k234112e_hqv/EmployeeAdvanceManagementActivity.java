@@ -34,6 +34,7 @@ public class EmployeeAdvanceManagementActivity extends AppCompatActivity {
         setContentView(R.layout.activity_employee_advance_management);
         addViews();
         sampleData();
+        addEvent();
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -41,14 +42,26 @@ public class EmployeeAdvanceManagementActivity extends AppCompatActivity {
         });
     }
 
-    private void addEvent(){
-        spDepartment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    private void addEvent() {
+        spDepartment.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long id) {
-                Department selectedDepartment = lisOfDepartment.get(i);
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 adapterEmployee.clear();
-                adapterEmployee.addAll(selectedDepartment.getListOfEmployee());
+                if (i == 0) {
+                    // Hiển thị toàn bộ nhân viên từ tất cả các phòng ban
+                    for (int j = 1; j < lisOfDepartment.size(); j++) {
+                        adapterEmployee.addAll(lisOfDepartment.get(j).getListOfEmployee());
+                    }
+                } else {
+                    // Hiển thị nhân viên của phòng ban được chọn
+                    Department selectedDepartment = lisOfDepartment.get(i);
+                    adapterEmployee.addAll(selectedDepartment.getListOfEmployee());
+                }
                 adapterEmployee.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
     }
