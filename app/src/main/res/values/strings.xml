@@ -41,4 +41,41 @@
     <string name="str_delete_success">Deleted successfully</string>
     <string name="str_department">Department</string>
     <string name="str_list_employee">List Employee</string>
+    <string name="str_birth_place">Birth Place:</string>
+    <string-array name="array_birth_place">
+        <item>Hà Nội</item>
+        <item>TP Hồ Chí Minh</item>
+        <item>Đà Nẵng</item>
+        <item>Hải Phòng</item>
+        <item>Cần Thơ</item>
+        <item>An Giang</item>
+        <item>Bà Rịa - Vũng Tàu</item>
+        <item>Bắc Giang</item>
+        <item>Bắc Ninh</item>
+        <item>Bến Tre</item>
+        <item>Bình Dương</item>
+        <item>Bình Định</item>
+        <item>Bình Phước</item>
+        <item>Bình Thuận</item>
+        <item>Cà Mau</item>
+        <item>Đắk Lắk</item>
+        <item>Đồng Nai</item>
+        <item>Đồng Tháp</item>
+        <item>Gia Lai</item>
+        <item>Hà Nam</item>
+        <item>Hà Tĩnh</item>
+        <item>Hải Dương</item>
+        <item>Hậu Giang</item>
+        <item>Khánh Hòa</item>
+        <item>Kiên Giang</item>
+        <item>Lâm Đồng</item>
+        <item>Long An</item>
+        <item>Nam Định</item>
+        <item>Nghệ An</item>
+        <item>Ninh Bình</item>
+        <item>Phú Thọ</item>
+        <item>Quảng Nam</item>
+        <item>Quảng Ninh</item>
+        <item>Thanh Hóa</item>
+    </string-array>
 </resources>

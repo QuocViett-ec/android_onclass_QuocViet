@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -26,6 +27,7 @@ public class EmployeeAdvanceManagementActivity extends AppCompatActivity {
     Spinner spDepartment;
     ArrayList<Department> lisOfDepartment;
     ArrayAdapter<Department> adapterDepartment;
+    ImageView img_add_emp,img_edit_emp,img_delete_img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

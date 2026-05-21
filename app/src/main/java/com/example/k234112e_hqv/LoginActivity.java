@@ -18,6 +18,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.models.ListUserAccount;
+import com.example.models.UserAccount;
+
 public class LoginActivity extends AppCompatActivity {
 
     /*
@@ -56,6 +59,37 @@ public class LoginActivity extends AppCompatActivity {
         rad_employee=findViewById(R.id.rad_employee);
     }
     public void loginSystem(View view) {
+        String username = editTextUsername.getText().toString();
+        String password = editTextTextPassword.getText().toString();
+        UserAccount uc= ListUserAccount.Login(username,password);
+        if(uc!=null) {
+            boolean saved = chk_SaveLogin.isChecked();
+            SharedPreferences preferences = getSharedPreferences(name_share_pref, MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("UserName", username);
+            editor.putString("PassWord", password);
+            editor.putBoolean("Saved", saved);
+            editor.commit();
+            txtMassage.setText(getString(R.string.str_login_success));
+
+            if (rad_admin.isChecked() ){
+                // Admin: go to main UI
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                intent.putExtra("User_Login", uc);
+                startActivity(intent);
+            } else if (rad_employee.isChecked() ) {
+                // Employee: go to employee UI
+                Intent intent = new Intent(LoginActivity.this, EmployeeAdvanceManagementActivity.class);
+                startActivity(intent);
+            }
+        }
+        else
+        {
+            txtMassage.setText(getString(R.string.str_login_fail));
+            return;
+        }
+    }
+    public void loginSystemOld(View view) {
         String username = editTextUsername.getText().toString();
         String password = editTextTextPassword.getText().toString();
         boolean isAdmin = username.equalsIgnoreCase("admin") && password.equals("123");

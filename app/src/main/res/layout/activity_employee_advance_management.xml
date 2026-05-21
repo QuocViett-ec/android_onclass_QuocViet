@@ -27,10 +27,50 @@
         android:background="@color/yellow_background"
         android:text="@string/str_list_employee" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_add_emp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_add_emp" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:background="@color/pink" />
+
+        <ImageView
+            android:id="@+id/img_delete_emp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_delete_emp" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:background="@color/pink" />
+
+        <ImageView
+            android:id="@+id/img_edit_emp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_edit_emp" />
+
+    </LinearLayout>
+
     <ListView
         android:id="@+id/lvEmployee"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
     </ListView>
 </LinearLayout>

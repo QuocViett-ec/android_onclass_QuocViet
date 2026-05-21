@@ -4,8 +4,21 @@ public class Employee {
     private String id;
     private String name;
     private String phone;
+    private String birthPlace;
+    public String getBirthPlace(){
+        return birthPlace;
+    }
+
+    public void setBirthPlace(String birthPlace) {
+        this.birthPlace = birthPlace;
+    }
 
     public Employee() {
+    }
+
+    public Employee(String id, String name, String phone, String birthPlace) {
+        this(id,name,phone);
+        this.birthPlace = birthPlace;
     }
 
     public Employee(String id, String name, String phone) {

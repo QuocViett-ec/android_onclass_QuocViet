@@ -31,5 +31,6 @@
     <string name="str_confirm_exit"><![CDATA[Do not Exit Please :<]]></string>
     <string name="str_department">Department</string>
     <string name="str_list_employee">List Employee</string>
+    <string name="str_birth_place">Birth Place:</string>
     Transform Selected Code…
 </resources>

@@ -24,6 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.K234112ehqv">
         <activity
+            android:name=".AddEmployeeActivity"
+            android:exported="false" />
+        <activity
             android:name=".EmployeeAdvanceManagementActivity"
             android:exported="false" />
         <activity
