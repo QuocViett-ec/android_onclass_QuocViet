@@ -1,5 +1,6 @@
 package com.example.k234112e_hqv;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,7 +28,7 @@ public class EmployeeAdvanceManagementActivity extends AppCompatActivity {
     Spinner spDepartment;
     ArrayList<Department> lisOfDepartment;
     ArrayAdapter<Department> adapterDepartment;
-    ImageView img_add_emp,img_edit_emp,img_delete_img;
+    ImageView img_add_emp,img_edit_emp,img_delete_emp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,28 +45,56 @@ public class EmployeeAdvanceManagementActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 999 && resultCode == 888 && data != null) {
+            Employee emp = (Employee) data.getSerializableExtra("New_Employee");
+            if (emp == null) {
+                return;
+            }
+            int selectedIndex = spDepartment.getSelectedItemPosition();
+            if (selectedIndex <= 0 && lisOfDepartment.size() > 1) {
+                selectedIndex = 1;
+            }
+            if (selectedIndex > 0 && selectedIndex < lisOfDepartment.size()) {
+                lisOfDepartment.get(selectedIndex).addEmployee(emp);
+            }
+            refreshEmployeesForDepartment(spDepartment.getSelectedItemPosition());
+        }
+    }
+
     private void addEvent() {
         spDepartment.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                adapterEmployee.clear();
-                if (i == 0) {
-                    // Hiển thị toàn bộ nhân viên từ tất cả các phòng ban
-                    for (int j = 1; j < lisOfDepartment.size(); j++) {
-                        adapterEmployee.addAll(lisOfDepartment.get(j).getListOfEmployee());
-                    }
-                } else {
-                    // Hiển thị nhân viên của phòng ban được chọn
-                    Department selectedDepartment = lisOfDepartment.get(i);
-                    adapterEmployee.addAll(selectedDepartment.getListOfEmployee());
-                }
-                adapterEmployee.notifyDataSetChanged();
+                refreshEmployeesForDepartment(i);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
+
+        img_add_emp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EmployeeAdvanceManagementActivity.this, AddEmployeeActivity.class);
+                startActivityForResult(intent, 999);
+            }
+        });
+    }
+
+    private void refreshEmployeesForDepartment(int index) {
+        adapterEmployee.clear();
+        if (index == 0) {
+            for (int j = 1; j < lisOfDepartment.size(); j++) {
+                adapterEmployee.addAll(lisOfDepartment.get(j).getListOfEmployee());
+            }
+        } else if (index > 0 && index < lisOfDepartment.size()) {
+            adapterEmployee.addAll(lisOfDepartment.get(index).getListOfEmployee());
+        }
+        adapterEmployee.notifyDataSetChanged();
     }
 
     private void sampleData() {
@@ -121,5 +150,9 @@ public class EmployeeAdvanceManagementActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_item,lisOfDepartment);
         adapterDepartment.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spDepartment.setAdapter(adapterDepartment);
+
+        img_add_emp = findViewById(R.id.img_add_emp);
+        img_edit_emp = findViewById(R.id.img_edit_emp);
+        img_delete_emp = findViewById(R.id.img_delete_emp);
     }
 }

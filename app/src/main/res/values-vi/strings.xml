@@ -32,5 +32,5 @@
     <string name="str_department">Department</string>
     <string name="str_list_employee">List Employee</string>
     <string name="str_birth_place">Birth Place:</string>
-    Transform Selected Code…
+    <string name="str_please_input_full_info">Vui lòng nhập đầy đủ thông tin</string>
 </resources>

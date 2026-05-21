@@ -1,5 +1,6 @@
 package com.example.k234112e_hqv;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -9,10 +10,13 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.models.Employee;
 
 import java.util.ArrayList;
 
@@ -61,14 +65,21 @@ public class AddEmployeeActivity extends AppCompatActivity {
         String name=edt_name.getText().toString();
         String phone=edt_phone.getText().toString();
         String birthPlace=act_birth_place.getText().toString();
-        //validate data
-        if(id.isEmpty()||name.isEmpty()||phone.isEmpty()||birthPlace.isEmpty())
-        {
+
+        if (id.isEmpty() || name.isEmpty() || phone.isEmpty() || birthPlace.isEmpty()) {
             String msg=getResources().getString(R.string.str_please_input_full_info);
             Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
             return;
         }
-        // TODO: handle save data if needed
+        Employee emp=new Employee(id,name,phone);
+        //create result intent
+        Intent intent=new Intent();
+        //put data to intent
+        intent.putExtra("New_Employee",emp);
+        //set result
+        setResult(888,intent);
+        //finish activity     
+        finish();
     }
 
     private void addViews() {
@@ -84,4 +95,5 @@ public class AddEmployeeActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1,arrBirthplace);
         act_birth_place.setAdapter(adapterBirthPlace);
     }
+
 }
