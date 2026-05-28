@@ -43,6 +43,9 @@
     <string name="str_list_employee">List Employee</string>
     <string name="str_birth_place">Birth Place:</string>
     <string name="str_please_input_full_info">Please input full information</string>
+    <string name="str_order_report">Order Report</string>
+    <string name="str_from_date">From Date:</string>
+    <string name="str_to_date">To Date:</string>
     <string-array name="array_birth_place">
         <item>Hà Nội</item>
         <item>TP Hồ Chí Minh</item>

@@ -1,6 +1,7 @@
 package com.example.models;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Order implements Serializable {
@@ -8,6 +9,8 @@ public class Order implements Serializable {
     private String employeeId;
     private String customerId;
     private Date orderDate;
+
+    static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     public Order() {
     }
@@ -53,12 +56,9 @@ public class Order implements Serializable {
 
     @Override
     public String toString() {
-        return "Order{" +
-                "orderId='" + orderId + '\'' +
-                ", employeeId='" + employeeId + '\'' +
-                ", customerId='" + customerId + '\'' +
-                ", orderDate=" + orderDate +
-                '}';
+        String data = orderId + " \t " + sdf.format(this.orderDate) +" \t "+  DataWareHouse.sumOfMoney(this);
+        return data;
+
     }
 }
 

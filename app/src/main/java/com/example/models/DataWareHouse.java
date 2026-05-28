@@ -157,7 +157,45 @@ public class DataWareHouse implements Serializable {
 
     }
 
-    public static ArrayList<OrderDetail> getOrderDetails() {
-        return getOrderDetails(getOrders(), getProducts());
+    public static double sumOfMoney(Order or)
+    {
+        double sum = 0;
+        if (or == null) {
+            return sum;
+        }
+
+        ArrayList<OrderDetail> orderDetails = getOrderDetails(getOrders(), getProducts());
+        for (OrderDetail detail : orderDetails) {
+            if (or.getOrderId().equals(detail.getOrderId())) {
+                double lineTotal = detail.getQuantity() * detail.getPrice();
+                lineTotal = lineTotal * (1 - detail.getCoupon());
+                lineTotal = lineTotal * (1 + detail.getVAT());
+                sum += lineTotal;
+            }
+        }
+        return sum;
+    }
+
+    public static ArrayList<Order> filterOrdersByDate(Date fromDate, Date toDate)
+    {
+        ArrayList<Order> result = new ArrayList<>();
+        ArrayList<Order> orders = getOrders();
+        if (fromDate == null || toDate == null) {
+            result.addAll(orders);
+            return result;
+        }
+
+        Date start = fromDate.before(toDate) ? fromDate : toDate;
+        Date end = fromDate.before(toDate) ? toDate : fromDate;
+        for (Order order : orders) {
+            Date orderDate = order.getOrderDate();
+            if (orderDate == null) {
+                continue;
+            }
+            if (!orderDate.before(start) && !orderDate.after(end)) {
+                result.add(order);
+            }
+        }
+        return result;
     }
 }
