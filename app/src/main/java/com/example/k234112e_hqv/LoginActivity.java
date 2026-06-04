@@ -3,13 +3,16 @@ package com.example.k234112e_hqv;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
@@ -20,6 +23,12 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.models.ListUserAccount;
 import com.example.models.UserAccount;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -34,13 +43,55 @@ public class LoginActivity extends AppCompatActivity {
     CheckBox chk_SaveLogin;
     String name_share_pref="LoginInfor";
     RadioButton rad_admin,rad_employee;
+
+//copy từ 48-87 sửa lại tên database
+    public static final String DATABASE_NAME = "k234112eSales.db";
+    public static final String DB_PATH_SUFFIX = "/databases/";
+    public static SQLiteDatabase database = null;
+    private void copyDataBase(){
+        try{
+            File dbFile= getDatabasePath(DATABASE_NAME);
+            if(!dbFile.exists()){
+                if(CopyDBFromAsset()){
+                    Toast.makeText(LoginActivity.this,
+                            "Copy database successful!", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(LoginActivity.this,
+                            "Copy database fail!", Toast.LENGTH_LONG).show();
+                }
+            }
+        }catch (Exception e){
+            Log.e("Error: ", e.toString());
+        }
+    }
+
+    private boolean CopyDBFromAsset() {
+        String dbPath = getApplicationInfo().dataDir + DB_PATH_SUFFIX + DATABASE_NAME;
+        try {
+            InputStream inputStream = getAssets().open(DATABASE_NAME);
+            File f = new File(getApplicationInfo().dataDir + DB_PATH_SUFFIX);
+            if(!f.exists()){
+                f.mkdir();
+            }
+            OutputStream outputStream = new FileOutputStream(dbPath);
+            byte[] buffer = new byte[1024]; int length;
+            while((length=inputStream.read(buffer))>0){
+                outputStream.write(buffer,0, length);
+            }
+            outputStream.flush();  outputStream.close(); inputStream.close();
+            return  true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
         addViews();
-
+        copyDataBase();
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -74,8 +125,10 @@ public class LoginActivity extends AppCompatActivity {
 
             if (rad_admin.isChecked() ){
                 // Admin: go to order management UI
-                Intent intent = new Intent(LoginActivity.this, OrderManagementActivity.class);
-                intent.putExtra("User_Login", uc);
+                //Intent intent = new Intent(LoginActivity.this, OrderManagementActivity.class);
+                //intent.putExtra("User_Login", uc);
+                //startActivity(intent);
+                Intent intent = new Intent(LoginActivity.this,ProductActivity.class);
                 startActivity(intent);
             } else if (rad_employee.isChecked() ) {
                 // Employee: go to employee UI
@@ -123,7 +176,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void exitSystem(View view) {
+    public void ExitSystem(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
         builder.setTitle("Xác nhận thoát");
         builder.setMessage("Bạn có thực sự muốn thoát không?");

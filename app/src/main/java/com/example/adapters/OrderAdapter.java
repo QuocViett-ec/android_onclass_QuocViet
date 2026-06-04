@@ -40,7 +40,7 @@ public class OrderAdapter extends ArrayAdapter<Order> {
         TextView txtOrderId = customView.findViewById(R.id.txtOrderId);
         TextView txtOrderDate = customView.findViewById(R.id.txtOrderDate);
         TextView txtStatus = customView.findViewById(R.id.txtStatus);
-        TextView txtOrderTotal = customView.findViewById(R.id.txtOrderTotal);
+        TextView txtTotalMoney = customView.findViewById(R.id.txtTotalMoney);
 
         Order order = getItem(position);
         if (order != null) {
@@ -68,7 +68,7 @@ public class OrderAdapter extends ArrayAdapter<Order> {
                 }
             }
             double total = DataWareHouse.sumOfMoney(order);
-            txtOrderTotal.setText(String.valueOf(total));
+            txtTotalMoney.setText(String.valueOf(total));
         }
 
         return customView;
