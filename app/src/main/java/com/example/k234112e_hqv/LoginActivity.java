@@ -73,8 +73,8 @@ public class LoginActivity extends AppCompatActivity {
             txtMassage.setText(getString(R.string.str_login_success));
 
             if (rad_admin.isChecked() ){
-                // Admin: go to main UI
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                // Admin: go to order management UI
+                Intent intent = new Intent(LoginActivity.this, OrderManagementActivity.class);
                 intent.putExtra("User_Login", uc);
                 startActivity(intent);
             } else if (rad_employee.isChecked() ) {
@@ -108,8 +108,8 @@ public class LoginActivity extends AppCompatActivity {
             txtMassage.setText(getString(R.string.str_login_success));
 
             if (rad_admin.isChecked() && isAdmin) {
-                // Admin: go to main UI
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                // Admin: go to order management UI
+                Intent intent = new Intent(LoginActivity.this, OrderManagementActivity.class);
                 startActivity(intent);
             } else if (rad_employee.isChecked() && isEmployee) {
                 // Employee: go to employee UI

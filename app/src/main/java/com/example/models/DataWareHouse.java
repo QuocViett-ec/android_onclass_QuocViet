@@ -99,6 +99,12 @@ public class DataWareHouse implements Serializable {
         int[] months2024 = {0,1,2,3,4,5,6,7,8,9,10,11};
         int[] months2025 = {0,1,2,3,4,5,6,7,8,9,10,11};
         int[] months2026 = {0,1,2};
+        OrderStatus[] statuses = {
+                OrderStatus.COMPLETED,
+                OrderStatus.NOT_PAYMENT,
+                OrderStatus.ON_LOGISTIC,
+                OrderStatus.CUSTOMER_COMPLAINT
+        };
 
         for (int i = 0; i < 100; i++) {
             int year;
@@ -123,7 +129,8 @@ public class DataWareHouse implements Serializable {
             String orderId = "o" + (i + 1);
             String customerId = customers.get(i % customers.size()).getCustomerId();
             String employeeId = employees.get(i % employees.size()).getId();
-            orders.add(new Order(orderId, customerId, employeeId, calendar.getTime()));
+            Order order = new Order(orderId, customerId, employeeId, calendar.getTime(), statuses[i % statuses.length]);
+            orders.add(order);
         }
         return orders;
     }
@@ -193,6 +200,22 @@ public class DataWareHouse implements Serializable {
                 continue;
             }
             if (!orderDate.before(start) && !orderDate.after(end)) {
+                result.add(order);
+            }
+        }
+        return result;
+    }
+    public static ArrayList<Order> filterOrdersByStatus(OrderStatus status)
+    {
+        ArrayList<Order> result = new ArrayList<>();
+        ArrayList<Order> orders = getOrders();
+        if (status == null || status == OrderStatus.ALL) {
+            result.addAll(orders);
+            return result;
+        }
+
+        for (Order order : orders) {
+            if (status.equals(order.getOrderStatus())) {
                 result.add(order);
             }
         }

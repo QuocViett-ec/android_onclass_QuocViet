@@ -36,4 +36,9 @@
     <string name="str_order_report">Order Report</string>
     <string name="str_from_date">From Date:</string>
     <string name="str_to_date">To Date:</string>
+    <string name="str_order_status_all">All Status</string>
+    <string name="str_order_status_completed">Completed</string>
+    <string name="str_order_status_notpayment">Not Payment</string>
+    <string name="str_order_status_onlogistic">On Logistic</string>
+    <string name="str_order_status_customercomplain">Customer Complain</string>
 </resources>
