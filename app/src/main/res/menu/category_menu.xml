@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mnuCategoryNew"
+        app:showAsAction="ifRoom"
+        android:title="@string/str_category_new" />
+    <item
+        android:id="@+id/mnuStatistic"
+        app:showAsAction="never"
+        android:title="@string/str_category_statistic" />
+</menu>

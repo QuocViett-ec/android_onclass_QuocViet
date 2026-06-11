@@ -24,6 +24,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.K234112ehqv">
         <activity
+            android:name=".MyContactActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategoryNewActivity"
+            android:exported="false" />
+        <activity
             android:name=".ProductActivity"
             android:exported="false" />
         <activity

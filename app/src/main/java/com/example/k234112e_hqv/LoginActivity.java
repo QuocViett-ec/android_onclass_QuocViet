@@ -49,31 +49,36 @@ public class LoginActivity extends AppCompatActivity {
     public static final String DB_PATH_SUFFIX = "/databases/";
     public static SQLiteDatabase database = null;
     private void copyDataBase(){
-        try{
-            File dbFile= getDatabasePath(DATABASE_NAME);
-            if(!dbFile.exists()){
-                if(CopyDBFromAsset()){
-                    Toast.makeText(LoginActivity.this,
-                            "Copy database successful!", Toast.LENGTH_LONG).show();
-                }else{
-                    Toast.makeText(LoginActivity.this,
-                            "Copy database fail!", Toast.LENGTH_LONG).show();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    File dbFile= getDatabasePath(DATABASE_NAME);
+                    if(!dbFile.exists()){
+                        if(CopyDBFromAsset()){
+                            runOnUiThread(() -> Toast.makeText(LoginActivity.this,
+                                    "Copy database successful!", Toast.LENGTH_LONG).show());
+                        }else{
+                            runOnUiThread(() -> Toast.makeText(LoginActivity.this,
+                                    "Copy database fail!", Toast.LENGTH_LONG).show());
+                        }
+                    }
+                }catch (Exception e){
+                    Log.e("Error: ", e.toString());
                 }
             }
-        }catch (Exception e){
-            Log.e("Error: ", e.toString());
-        }
+        }).start();
     }
 
     private boolean CopyDBFromAsset() {
-        String dbPath = getApplicationInfo().dataDir + DB_PATH_SUFFIX + DATABASE_NAME;
         try {
             InputStream inputStream = getAssets().open(DATABASE_NAME);
-            File f = new File(getApplicationInfo().dataDir + DB_PATH_SUFFIX);
-            if(!f.exists()){
-                f.mkdir();
+            File dbFile = getDatabasePath(DATABASE_NAME);
+            File dbDir = dbFile.getParentFile();
+            if (dbDir != null && !dbDir.exists()) {
+                dbDir.mkdirs();
             }
-            OutputStream outputStream = new FileOutputStream(dbPath);
+            OutputStream outputStream = new FileOutputStream(dbFile);
             byte[] buffer = new byte[1024]; int length;
             while((length=inputStream.read(buffer))>0){
                 outputStream.write(buffer,0, length);
@@ -128,7 +133,9 @@ public class LoginActivity extends AppCompatActivity {
                 //Intent intent = new Intent(LoginActivity.this, OrderManagementActivity.class);
                 //intent.putExtra("User_Login", uc);
                 //startActivity(intent);
-                Intent intent = new Intent(LoginActivity.this,ProductActivity.class);
+                // Intent intent = new Intent(LoginActivity.this,ProductActivity.class);
+                //Intent intent = new Intent(LoginActivity.this,CategoryActivity.class);
+                Intent intent = new Intent(LoginActivity.this,MyContactActivity.class);
                 startActivity(intent);
             } else if (rad_employee.isChecked() ) {
                 // Employee: go to employee UI

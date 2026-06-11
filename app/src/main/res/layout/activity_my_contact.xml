@@ -6,18 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CategoryActivity">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarCategory"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:titleTextColor="@android:color/white"
-        app:title="Quản lý danh mục" />
+    tools:context=".MyContactActivity">
 
     <ListView
-        android:id="@+id/lvCategory"
+        android:id="@+id/lvMyContact"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>
