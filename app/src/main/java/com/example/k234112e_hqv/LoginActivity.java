@@ -1,9 +1,14 @@
 package com.example.k234112e_hqv;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -113,6 +118,7 @@ public class LoginActivity extends AppCompatActivity {
         chk_SaveLogin=findViewById(R.id.chk_SaveLogin);
         rad_admin=findViewById(R.id.rad_admin);
         rad_employee=findViewById(R.id.rad_employee);
+
     }
     public void loginSystem(View view) {
         String username = editTextUsername.getText().toString();
@@ -135,7 +141,9 @@ public class LoginActivity extends AppCompatActivity {
                 //startActivity(intent);
                 // Intent intent = new Intent(LoginActivity.this,ProductActivity.class);
                 //Intent intent = new Intent(LoginActivity.this,CategoryActivity.class);
-                Intent intent = new Intent(LoginActivity.this,MyContactActivity.class);
+                //Intent intent = new Intent(LoginActivity.this,MyContactActivity.class);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+
                 startActivity(intent);
             } else if (rad_employee.isChecked() ) {
                 // Employee: go to employee UI
@@ -169,7 +177,8 @@ public class LoginActivity extends AppCompatActivity {
 
             if (rad_admin.isChecked() && isAdmin) {
                 // Admin: go to order management UI
-                Intent intent = new Intent(LoginActivity.this, OrderManagementActivity.class);
+                //Intent intent = new Intent(LoginActivity.this, OrderManagementActivity.class);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
             } else if (rad_employee.isChecked() && isEmployee) {
                 // Employee: go to employee UI
@@ -206,6 +215,26 @@ public class LoginActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+    BroadcastReceiver internetStateReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action=intent.getAction();
+            if(action.equals(ConnectivityManager.CONNECTIVITY_ACTION))
+            {
+
+            }
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(CONNECTIVITY_SERVICE);
+            if (connectivityManager != null) {
+                NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    btn_login.setEnabled(true);
+                } else {
+                    btn_login.setEnabled(false);
+                }
+            }
+        }
+    };
+
 
     @Override
     protected void onResume() {
@@ -221,5 +250,14 @@ public class LoginActivity extends AppCompatActivity {
         }
         chk_SaveLogin.setChecked(saved);
 
+        IntentFilter intentFilter=new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(internetStateReceiver,intentFilter);
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(internetStateReceiver);
     }
 }

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="str_numberofbutton">Number Button</string>
+    <string name="str_create_button">Create Button</string>
+    <string name="str_multi_threading_demo">Multi Threading Demo</string>
+</resources>

@@ -111,4 +111,14 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     }
+
+    public void open_smsspyware(View view) {
+        Intent intent = new Intent(this, SMSSypewareActivity.class);
+        startActivity(intent);
+    }
+
+    public void multi_threading_activity(View view) {
+        Intent intent = new Intent(this, MultiThreadingActivity.class);
+        startActivity(intent);
+    }
 }

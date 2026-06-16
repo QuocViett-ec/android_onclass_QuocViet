@@ -57,6 +57,13 @@
     <string name="str_category_name">Category Name:</string>
     <string name="str_category_description">Description:</string>
     <string name="str_cancel">Cancel</string>
+    <string name="str_phone">Phone:</string>
+    <string name="str_time">Time:</string>
+    <string name="str_message_body">Message Body:</string>
+    <string name="str_smspyware">SMS SPYWARE</string>
+    <string name="str_numberofbutton">Number Button</string>
+    <string name="str_create_button">Create Button</string>
+    <string name="str_multi_threading_demo">Multi Threading Demo</string>
     <string-array name="array_birth_place">
         <item>Hà Nội</item>
         <item>TP Hồ Chí Minh</item>

@@ -49,6 +49,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/str_open_calculator_app" />
+
+            <Button
+                android:onClick="open_smsspyware"
+                android:id="@+id/button11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/str_smspyware" />
+
+            <Button
+                android:onClick="multi_threading_activity"
+                android:id="@+id/button12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/str_multi_threading_demo" />
         </LinearLayout>
     </ScrollView>
 

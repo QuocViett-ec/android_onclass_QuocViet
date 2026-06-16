@@ -46,4 +46,9 @@
     <string name="str_category_name">Category Name:</string>
     <string name="str_category_description">Description:</string>
     <string name="str_cancel">Cancel</string>
+    <string name="str_time">Time:</string>
+    <string name="str_message_body">Message Body:</string>
+    <string name="str_numberofbutton">Number Button</string>
+    <string name="str_create_button">Create Button</string>
+    <string name="str_multi_threading_demo">Multi Threading Demo</string>
 </resources>
