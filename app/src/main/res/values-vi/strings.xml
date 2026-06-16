@@ -51,4 +51,8 @@
     <string name="str_numberofbutton">Number Button</string>
     <string name="str_create_button">Create Button</string>
     <string name="str_multi_threading_demo">Multi Threading Demo</string>
+    <string name="str_number_product">Number Of Product</string>
+    <string name="str_download_product">Download Product</string>
+    <string name="str_multithreading_object">Multi Threading Object</string>
+    <string name="str_rau_vat">Rau Vat</string>
 </resources>

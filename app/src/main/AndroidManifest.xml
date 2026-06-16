@@ -27,6 +27,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.K234112ehqv">
         <activity
+            android:name=".RauVatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MultiThreadingObjectActivity"
+            android:exported="false" />
+        <activity
             android:name=".MultiThreadingActivity"
             android:exported="false" />
         <activity

@@ -63,6 +63,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/str_multi_threading_demo" />
+
+            <Button
+                android:onClick="openMultiThreadingObjectActivity"
+                android:id="@+id/button13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/str_multithreading_object" />
+
+            <Button
+                android:onClick="rauvat"
+                android:id="@+id/button14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/str_rau_vat" />
         </LinearLayout>
     </ScrollView>
 

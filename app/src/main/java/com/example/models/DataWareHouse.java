@@ -1,5 +1,7 @@
 package com.example.models;
 
+import android.widget.ArrayAdapter;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -58,6 +60,13 @@ public class DataWareHouse implements Serializable {
         products.add(p11);
         products.add(p12);
         return products;
+    }
+
+    public static Product downloadProduct(int i){
+        ArrayList<Product>products=getProducts();
+        if(i<0 || i>products.size())
+            return null;
+        return products.get(i);
     }
 
     public static ArrayList<Employee>getEmployee()

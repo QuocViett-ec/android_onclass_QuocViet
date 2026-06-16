@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="90dp"
+    android:viewportWidth="120"
+    android:viewportHeight="90">
+    <!-- Background -->
+    <path
+        android:fillColor="#E8E8F8"
+        android:pathData="M0,0 L120,0 L120,90 L0,90 Z" />
+    <!-- House silhouette -->
+    <path
+        android:fillColor="#C0C4E8"
+        android:pathData="M60,20 L30,45 L35,45 L35,70 L85,70 L85,45 L90,45 Z" />
+    <path
+        android:fillColor="#A0A4D8"
+        android:pathData="M50,70 L50,55 L70,55 L70,70 Z" />
+    <!-- Image icon circle -->
+    <path
+        android:fillColor="#9EA3D8"
+        android:pathData="M88,25 A8,8 0 1,1 88.001,25 Z" />
+</vector>

@@ -121,4 +121,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MultiThreadingActivity.class);
         startActivity(intent);
     }
+
+    public void openMultiThreadingObjectActivity(View view) {
+        Intent intent = new Intent(this, MultiThreadingObjectActivity.class);
+        startActivity(intent);
+    }
+
+    public void rauvat(View view) {
+        Intent intent = new Intent(this, RauVatActivity.class);
+        startActivity(intent);
+    }
 }
