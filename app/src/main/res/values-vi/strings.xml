@@ -55,4 +55,8 @@
     <string name="str_download_product">Download Product</string>
     <string name="str_multithreading_object">Multi Threading Object</string>
     <string name="str_rau_vat">Rau Vat</string>
+    <string name="str_play_audio1">Play Audio 1</string>
+    <string name="str_play_audio2">Play Audio 2</string>
+    <string name="str_uel">University Of Economics and Law</string>
+    <string name="str_font_music">Open Font And Music</string>
 </resources>

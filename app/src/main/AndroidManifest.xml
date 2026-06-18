@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <uses-feature
         android:name="android.hardware.telephony"
@@ -26,6 +27,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.K234112ehqv">
+        <activity
+            android:name=".MyUelQueryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FontAndMusicActivity"
+            android:exported="false" />
         <activity
             android:name=".RauVatActivity"
             android:exported="false" />

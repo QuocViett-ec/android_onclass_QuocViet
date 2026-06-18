@@ -77,6 +77,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/str_rau_vat" />
+
+            <Button
+                android:onClick="openFontAndMusic"
+                android:id="@+id/button15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/str_font_music" />
+
+            <Button
+                android:id="@+id/button16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="openMyUelQuery"
+                android:text="MYUEL Query" />
         </LinearLayout>
     </ScrollView>
 

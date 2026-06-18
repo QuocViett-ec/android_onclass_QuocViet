@@ -131,4 +131,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, RauVatActivity.class);
         startActivity(intent);
     }
+
+    public void openFontAndMusic(View view) {
+        Intent intent = new Intent(this, FontAndMusicActivity.class);
+        startActivity(intent);
+    }
+
+    public void openMyUelQuery(View view) {
+        Intent intent = new Intent(this, MyUelQueryActivity.class);
+        startActivity(intent);
+    }
 }
