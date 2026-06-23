@@ -7,4 +7,9 @@
     <color name="pink">#EB6084</color>
     <color name="blue">#3B82F6</color>
     <color name="status_completed">#10B981</color>
+    <color name="firebase_purple">#8E2C91</color>
+    <color name="firebase_purple_dark">#6F1F72</color>
+    <color name="firebase_background">#F8F4FA</color>
+    <color name="firebase_text">#2F2532</color>
+    <color name="firebase_divider">#E4D6E8</color>
 </resources>

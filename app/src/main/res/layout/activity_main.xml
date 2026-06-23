@@ -90,14 +90,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="openMyUelQuery"
-                android:text="MYUEL Query" />
+                android:text="@string/myuel_query" />
 
             <Button
                 android:id="@+id/btnFirebaseCrud"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="openFirebaseCrud"
-                android:text="Firebase CRUD Assignment" />
+                android:text="@string/firebase_crud_assignment"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btnFirebaseContactCrud"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/firebase_contact_crud" />
         </LinearLayout>
     </ScrollView>
 

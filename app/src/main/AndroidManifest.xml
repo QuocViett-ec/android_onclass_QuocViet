@@ -90,6 +90,15 @@
         <activity
             android:name=".FirebaseCrudActivity"
             android:exported="false" />
+        <activity
+            android:name=".FirebaseContactListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InsertContactActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FirebaseContactDetailActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

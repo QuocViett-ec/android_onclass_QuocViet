@@ -3,6 +3,7 @@ package com.example.k234112e_hqv;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addViews() {
+        Button btnFirebaseContactCrud = findViewById(R.id.btnFirebaseContactCrud);
+        btnFirebaseContactCrud.setOnClickListener(v -> {
+            Intent intent = new Intent(this, FirebaseContactListActivity.class);
+            startActivity(intent);
+        });
+
         //get intent
         Intent intent=getIntent();
         //get data
