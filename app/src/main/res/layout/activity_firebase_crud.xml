@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F8F9FA"
+    tools:context=".FirebaseCrudActivity">
+
+    <!-- Header Section -->
+    <TextView
+        android:id="@+id/txtHeaderTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Firebase CRUD Assignment"
+        android:textAlignment="center"
+        android:textColor="#333333"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Connection Status Bar -->
+    <LinearLayout
+        android:id="@+id/layoutStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#E9ECEF"
+        android:padding="8dp"
+        android:layout_marginBottom="16dp">
+
+        <View
+            android:id="@+id/viewStatusIndicator"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="#6C757D"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:id="@+id/txtConnectionStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Checking connectivity..."
+            android:textColor="#495057"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Scrollable Input Form -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ID Field -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Item ID (Auto-generated):"
+                android:textColor="#6C757D"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/edtItemId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:hint="No ID (Will auto-generate)"
+                android:textColor="#333333"
+                android:layout_marginBottom="12dp"
+                android:inputType="text" />
+
+            <!-- Item Name -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Item Name:"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtItemName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter item name"
+                android:textColor="#333333"
+                android:layout_marginBottom="12dp"
+                android:inputType="text" />
+
+            <!-- Price -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price ($):"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtItemPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="0.00"
+                android:textColor="#333333"
+                android:layout_marginBottom="12dp"
+                android:inputType="numberDecimal" />
+
+            <!-- Quantity -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quantity:"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtItemQuantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="0"
+                android:textColor="#333333"
+                android:layout_marginBottom="16dp"
+                android:inputType="number" />
+
+            <!-- Buttons Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+
+                <Button
+                    android:id="@+id/btnAdd"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Add"
+                    android:layout_marginEnd="4dp"
+                    android:backgroundTint="#28A745"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/btnUpdate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Update"
+                    android:layout_marginHorizontal="2dp"
+                    android:backgroundTint="#007BFF"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/btnDelete"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Delete"
+                    android:layout_marginHorizontal="2dp"
+                    android:backgroundTint="#DC3545"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/btnClear"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Clear"
+                    android:layout_marginStart="4dp"
+                    android:backgroundTint="#6C757D"
+                    android:textColor="#FFFFFF" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saved Items List:"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <!-- List View to display data -->
+            <ListView
+                android:id="@+id/lvItems"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="#FFFFFF"
+                android:divider="#E2E2E2"
+                android:dividerHeight="1dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

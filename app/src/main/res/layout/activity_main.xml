@@ -91,6 +91,13 @@
                 android:layout_height="wrap_content"
                 android:onClick="openMyUelQuery"
                 android:text="MYUEL Query" />
+
+            <Button
+                android:id="@+id/btnFirebaseCrud"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="openFirebaseCrud"
+                android:text="Firebase CRUD Assignment" />
         </LinearLayout>
     </ScrollView>
 

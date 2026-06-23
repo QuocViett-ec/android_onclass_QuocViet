@@ -9,6 +9,9 @@ activity = "1.13.0"
 constraintlayout = "2.2.1"
 activityKtx = "1.8.0"
 recyclerview = "1.4.0"
+googleServices = "4.4.2"
+firebaseBom = "33.1.1"
+
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -20,7 +23,12 @@ activity = { group = "androidx.activity", name = "activity", version.ref = "acti
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "activityKtx" }
 recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
+firebase-database = { group = "com.google.firebase", name = "firebase-database" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
+
 

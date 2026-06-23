@@ -87,6 +87,9 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+        <activity
+            android:name=".FirebaseCrudActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

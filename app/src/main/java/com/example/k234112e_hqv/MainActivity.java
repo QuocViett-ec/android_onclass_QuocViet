@@ -141,4 +141,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MyUelQueryActivity.class);
         startActivity(intent);
     }
+
+    public void openFirebaseCrud(View view) {
+        Intent intent = new Intent(this, FirebaseCrudActivity.class);
+        startActivity(intent);
+    }
 }

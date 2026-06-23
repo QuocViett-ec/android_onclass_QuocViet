@@ -134,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
             editor.commit();
             txtMassage.setText(getString(R.string.str_login_success));
 
-            if (rad_admin.isChecked() ){
+            if (rad_admin.isChecked() && uc.getRole().equalsIgnoreCase("Admin")){
                 // Admin: go to order management UI
                 //Intent intent = new Intent(LoginActivity.this, OrderManagementActivity.class);
                 //intent.putExtra("User_Login", uc);
@@ -143,12 +143,13 @@ public class LoginActivity extends AppCompatActivity {
                 //Intent intent = new Intent(LoginActivity.this,CategoryActivity.class);
                 //Intent intent = new Intent(LoginActivity.this,MyContactActivity.class);
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-
                 startActivity(intent);
-            } else if (rad_employee.isChecked() ) {
+            } else if (rad_employee.isChecked() && uc.getRole().equalsIgnoreCase("Employee")) {
                 // Employee: go to employee UI
                 Intent intent = new Intent(LoginActivity.this, EmployeeAdvanceManagementActivity.class);
                 startActivity(intent);
+            } else {
+                txtMassage.setText("Sai vai trò (Role mismatch)!");
             }
         }
         else
