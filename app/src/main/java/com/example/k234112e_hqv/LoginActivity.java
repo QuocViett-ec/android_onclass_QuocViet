@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
     Button btn_exit;
     CheckBox chk_SaveLogin;
     String name_share_pref="LoginInfor";
-    RadioButton rad_admin,rad_employee;
+    RadioButton rad_admin,rad_employee,rad_customer;
 
 //copy từ 48-87 sửa lại tên database
     public static final String DATABASE_NAME = "k234112eSales.db";
@@ -118,6 +118,7 @@ public class LoginActivity extends AppCompatActivity {
         chk_SaveLogin=findViewById(R.id.chk_SaveLogin);
         rad_admin=findViewById(R.id.rad_admin);
         rad_employee=findViewById(R.id.rad_employee);
+        rad_customer=findViewById(R.id.rad_customer);
 
     }
     public void loginSystem(View view) {
@@ -147,6 +148,10 @@ public class LoginActivity extends AppCompatActivity {
             } else if (rad_employee.isChecked() && uc.getRole().equalsIgnoreCase("Employee")) {
                 // Employee: go to employee UI
                 Intent intent = new Intent(LoginActivity.this, EmployeeAdvanceManagementActivity.class);
+                startActivity(intent);
+            } else if (rad_customer.isChecked() && uc.getRole().equalsIgnoreCase("Customer")) {
+                // Customer: go to CustomerHomeActivity
+                Intent intent = new Intent(LoginActivity.this, CustomerHomeActivity.class);
                 startActivity(intent);
             } else {
                 txtMassage.setText("Sai vai trò (Role mismatch)!");

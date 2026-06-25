@@ -99,6 +99,21 @@
         <activity
             android:name=".FirebaseContactDetailActivity"
             android:exported="false" />
+        <activity
+            android:name=".CustomerHomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CustomerProductDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CustomerCartActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CustomerOrdersActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CustomerOrderDetailActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

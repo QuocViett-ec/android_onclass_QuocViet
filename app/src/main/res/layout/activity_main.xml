@@ -105,6 +105,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/firebase_contact_crud" />
+
+            <Button
+                android:id="@+id/btnCustomerFlow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="openCustomerFlow"
+                android:text="Customer Shopping Flow" />
         </LinearLayout>
     </ScrollView>
 

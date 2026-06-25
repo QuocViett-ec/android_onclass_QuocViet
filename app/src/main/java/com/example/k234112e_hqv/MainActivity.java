@@ -153,4 +153,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, FirebaseCrudActivity.class);
         startActivity(intent);
     }
+
+    public void openCustomerFlow(View view) {
+        Intent intent = new Intent(this, CustomerHomeActivity.class);
+        startActivity(intent);
+    }
 }

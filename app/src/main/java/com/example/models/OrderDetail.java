@@ -11,6 +11,9 @@ public class OrderDetail implements Serializable {
     private double coupon;
     private double VAT;
 
+    // Firebase compatibility field
+    private double unitPrice;
+
     public OrderDetail() {
     }
 
@@ -80,6 +83,15 @@ public class OrderDetail implements Serializable {
         this.VAT = VAT;
     }
 
+    public double getUnitPrice() {
+        return unitPrice > 0 ? unitPrice : price;
+    }
+
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = unitPrice;
+        this.price = unitPrice;
+    }
+
     @Override
     public String toString() {
         return "OrderDetail{" +
@@ -90,6 +102,7 @@ public class OrderDetail implements Serializable {
                 ", price=" + price +
                 ", coupon=" + coupon +
                 ", VAT=" + VAT +
+                ", unitPrice=" + unitPrice +
                 '}';
     }
 }

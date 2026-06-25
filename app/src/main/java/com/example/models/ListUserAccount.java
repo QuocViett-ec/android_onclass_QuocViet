@@ -9,6 +9,7 @@ public class ListUserAccount {
         database.add(new UserAccount("admin","123","Admin","Quoc Viet",true));
         database.add(new UserAccount("user1","user123","Employee","Quoc Vinh",false));
         database.add(new UserAccount("user2","user123","Employee","An Ninh",false));
+        database.add(new UserAccount("customer","123","Customer","Nguyen Van A",false));
         return database;
     }
     public static UserAccount Login(String username, String password)

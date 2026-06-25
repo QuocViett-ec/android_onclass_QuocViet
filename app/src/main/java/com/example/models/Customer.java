@@ -11,6 +11,9 @@ public class Customer implements Serializable {
     private String address;
     private Date birthDay;
 
+    // Firebase compatibility field
+    private String fullName;
+
     public Customer() {
     }
 
@@ -71,6 +74,15 @@ public class Customer implements Serializable {
         this.birthDay = birthDay;
     }
 
+    public String getFullName() {
+        return fullName != null ? fullName : customerName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+        this.customerName = fullName;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
@@ -80,6 +92,7 @@ public class Customer implements Serializable {
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
                 ", birthDay=" + birthDay +
+                ", fullName='" + fullName + '\'' +
                 '}';
     }
 }

@@ -12,6 +12,12 @@ public class Product implements Serializable {
     //bổ sung thêm chỉ thêm mới vào không sửa trực tiếp những cái đang có
     private String categoryId;
 
+    // Firebase compatibility fields
+    private double price;
+    private int stock;
+    private String imageUrl;
+    private boolean isActive;
+
     public Product() {
     }
     // tạo thêm constructor đầy đủ đối so bổ sung thêm vào hàm cũ
@@ -85,6 +91,51 @@ public class Product implements Serializable {
         this.categoryId = categoryId;
     }
 
+    // Firebase getters/setters
+    public double getPrice() {
+        return price > 0 ? price : prices;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+        this.prices = price;
+    }
+
+    public int getStock() {
+        return stock > 0 ? stock : quantity;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+        this.quantity = stock;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(boolean active) {
+        isActive = active;
+    }
+
+    @com.google.firebase.database.Exclude
+    public boolean isActive() {
+        return isActive;
+    }
+
+    @com.google.firebase.database.Exclude
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -95,6 +146,10 @@ public class Product implements Serializable {
                 ", coupon=" + coupon +
                 ", VAT=" + VAT +
                 ", categoryId='" + categoryId + '\'' +
+                ", price=" + price +
+                ", stock=" + stock +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", isActive=" + isActive +
                 '}';
     }
 }
